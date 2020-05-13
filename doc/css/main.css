@@ -1,0 +1,75 @@
+/*
+
+font-family: 'Bangers', cursive;
+font-family: 'Oleo Script Swash Caps', cursive;
+
+*/
+
+
+:root{
+  --head-width: 400px;
+  --head-color: #6441a5;
+  --title-size:5em;
+  --game-size:3em;
+  --footer-height:150px;
+}
+body{
+  height: 100%;
+  min-height: 100%;
+  /* background-image: linear-gradient(to bottom right, blue, orange); */
+user-select: none;
+}
+#head{
+  position: fixed;
+  height: var(--head-width);
+  width:110%;
+  left:-5%;
+  top:-3%;
+    background-color: var(--head-color);
+    transform: rotate(-2deg);
+}
+#title{
+  top: 50px;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  color:white;
+  transform: rotate(-30deg);
+  /* text-shadow: 0 0 10px #000; */
+  font-size: var(--title-size);
+
+  text-align: center;
+  padding-top: calc(var(--head-width) / 2 - var(--title-size) / 4);
+}
+#game, #game2{
+  text-align:center;
+  font-family: 'Oswald', cursive;
+  /* font-family: 'Clicker Script', cursive; */
+  /* font-family: 'Pacifico', cursive; */
+  /* font-family: 'Balsamiq Sans', cursive; */
+  color:black;
+  font-size: var(--game-size);
+  /* display:none; */
+  --animate-duration: 1000ms;
+  --animation-delay: 2s;
+}
+main{
+  position: relative;
+  top:400px;
+  padding-left:10%;
+  padding-right: 10%;
+}
+.rutext{
+  font-family: 'Oswald', sans-serif;
+  color:black;
+  font-size: 2em;
+
+}
+
+footer{
+  position: fixed;
+  bottom:-20px;
+  width: 110%;
+  left:-5%;
+     transform: rotate(-2deg);
+  height: var(--footer-height);
+  background-color: var(--head-color);
+}
