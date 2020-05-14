@@ -4,6 +4,39 @@ const toda = new Date()//.getDate()-1
 const today = toda.getDay()-1;
 
 
+function result (){
+
+fetch("https://api.telegram.org/bot1208608965:AAFDpzSci4bV_WRfI4b6PsTaRoNWM77Xy6s/getUpdates").then(res => res.json()).then(res => {
+  let max_votes = 0;
+  let text_votes = "";
+  let msg = res.result;
+  // console.log(res)
+  for (let i=0;i<msg.length;i++){
+    try{
+    // console.log(msg[i].poll.is_closed);
+      if(msg[i].poll.is_closed == true){
+
+        let msgpoll = msg[i].poll.options;
+        // console.log(msgpoll)
+        for (let j=0;j<msgpoll.length;j++){
+
+          if(msgpoll[j].voter_count >= max_votes){
+            max_votes = msgpoll[j].voter_count;
+            text_votes = msgpoll[j].text;
+
+          }
+        }
+      }
+    }
+    catch {continue}
+  }
+    console.log(text_votes);
+    document.querySelector("#game").innerHTML = text_votes;
+})
+}
+
+
+
 let proxy = "https://api.codetabs.com/v1/proxy?quest=";
 let url = "https://rentry.co/ru-stream-plan/raw"
 const data = fetch(proxy+url).then(res => res.text()).then(res => { //.then(res => console.log(res))
@@ -28,10 +61,25 @@ const data = fetch(proxy+url).then(res => res.text()).then(res => { //.then(res 
   // console.log(te[7]);
   //document.querySelector("#t1").innerHTML = te[8];
   return te;
-}).then(te => te[today].split(":")[1]).then(res => document.querySelector("#game").innerHTML = res)
+}).then(te => te[today].split(":")[1]).then(res => document.querySelector("#game").innerHTML = res).then(res => {
+  setTimeout(()=>{
+    console.log(document.getElementById("game").innerHTML);
+
+       let a = document.querySelector("#game").innerHTML
+  if(a.includes("Aud") ){result()}
+
+},100);
+})
 /*
 const dataS = data;
 function display(){
   console.log(dataS[today]);
 }
 */
+
+
+
+
+
+
+//
