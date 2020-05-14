@@ -10,16 +10,23 @@ fetch("https://api.telegram.org/bot1208608965:AAFDpzSci4bV_WRfI4b6PsTaRoNWM77Xy6
   let max_votes = 0;
   let text_votes = "";
   let msg = res.result;
-  // console.log(res)
+  console.log(res)
+  if(res.result.length>=10){
+    let updateID = res.result[8].update_id;
+    fetch("https://api.telegram.org/bot1208608965:AAFDpzSci4bV_WRfI4b6PsTaRoNWM77Xy6s/getUpdates?offset="+updateID);
+  }
+
   for (let i=0;i<msg.length;i++){
     try{
     // console.log(msg[i].poll.is_closed);
       if(msg[i].poll.is_closed == true){
-
+        max_votes = 0;
+        text_votes = 0;
         let msgpoll = msg[i].poll.options;
         // console.log(msgpoll)
         for (let j=0;j<msgpoll.length;j++){
-
+          // console.log(max_votes);
+          // console.log(msgpoll[j])
           if(msgpoll[j].voter_count >= max_votes){
             max_votes = msgpoll[j].voter_count;
             text_votes = msgpoll[j].text;
