@@ -39,6 +39,32 @@ user-select: none;
   text-align: center;
   padding-top: calc(var(--head-width) / 2 - var(--title-size) / 4);
 }
+
+#subtitle{
+  color:white;
+
+}
+#subtitle{
+position: relative;
+left:calc(55%);
+width: 9em;
+background-color: black;
+color:white;
+padding:3px 5px;
+text-align: center;
+top:-75px;
+}
+/* #bsub{
+  position: relative;
+  left: 500px;
+  top:-70px;
+  transform: skewY(-1deg); skewX(-2deg);
+  transform: skewX(-0deg);
+  background-color: black;
+  width: 13.85em;
+  padding: 3px 3px;
+  text-align: center;
+} */
 #game, #game2{
   text-align:center;
   font-family: 'Oswald', cursive;
