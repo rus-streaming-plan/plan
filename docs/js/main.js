@@ -73,7 +73,10 @@ const data = fetch(proxy+url).then(res => res.text()).then(res => { //.then(res 
     console.log(document.getElementById("game").innerHTML);
 
        let a = document.querySelector("#game").innerHTML
-  if(a.includes("Aud") ){result()}
+  if(a.includes("Aud") ){
+    document.querySelector("#votinglink").style.display = "block"
+    result()
+  }
 
 },100);
 })

@@ -7,17 +7,21 @@ font-family: 'Oleo Script Swash Caps', cursive;
 
 
 :root{
-  --head-width: 400px;
+  --head-width: 300px;
   --head-color: #6441a5;
   --title-size:5em;
   --game-size:3em;
   --footer-height:150px;
+  --vl-box-width: 30%;
+  --subtitle-top: -75px;
+  --main-top:400px;
 }
 body{
   height: 100%;
   min-height: 100%;
   /* background-image: linear-gradient(to bottom right, blue, orange); */
 user-select: none;
+/* background-color: blue; */
 }
 #head{
   position: fixed;
@@ -52,7 +56,7 @@ background-color: black;
 color:white;
 padding:3px 5px;
 text-align: center;
-top:-75px;
+top:var(--subtitle-top);
 }
 /* #bsub{
   position: relative;
@@ -79,7 +83,7 @@ top:-75px;
 }
 main{
   position: relative;
-  top:400px;
+  top:var(--head-width);
   padding-left:10%;
   padding-right: 10%;
 }
@@ -90,6 +94,25 @@ main{
 
 }
 
+#votinglink{
+  position: fixed;
+  width: 150px;
+  padding: 20px;
+  height: 10%;
+  top: 45%;
+  /* left: calc(100% - var(--vl-box-width)); */
+  background-color: #497799;
+  right: -20px;
+  font-family: 'Oswald',sans-serif;
+  font-size: 20px;
+  border-radius: 20px;
+  max-height: 80px;
+  display: none;
+}
+#votinglink a{
+  color: black;
+}
+
 footer{
   position: fixed;
   bottom:-20px;
@@ -98,4 +121,192 @@ footer{
      transform: rotate(-2deg);
   height: var(--footer-height);
   background-color: var(--head-color);
+}
+
+@media screen and (width: 320px) and (height: 568px) {
+:root{
+  --head-width: calc(400px);
+  --head-color: #6441a5;
+  --title-size:calc(5em );
+  --game-size:calc(3em );
+  --footer-height:calc(150px);
+  --vl-box-width: 30%;
+    --subtitle-top: calc(-75px);
+    --subtitle-left: 40%;
+    --main-top:150px;
+}
+  body{
+    /* background-color: red; */
+  }
+  #head{
+    height: var(--head-width);
+  }
+  #title{
+    top: 50px;
+    /* text-shadow: 0 0 10px #000; */
+    padding-top: calc(var(--head-width) / 3 - var(--title-size) / 4);
+  }
+  #subtitle{
+  left:var(--subtitle-left);
+  width: 9em;
+  top:var(--subtitle-top);
+  font-size: 18px;
+  }
+  main{
+    top:var(--main-top);
+  }
+  .rutext{
+    font-size: 1.5em;
+  }
+  #game, #game2{
+    font-size: 3em;
+  }
+  footer{
+    height: calc(var(--footer-height));
+  }
+  #votinglink{
+    width:115px;
+    height: 60px;
+    padding:15px;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+:root{
+  --head-width: 250px;
+  --head-color: #6441a5;
+  --title-size:calc(4em);
+  --game-size:calc(3em / 2);
+  --footer-height:calc(150px);
+  --vl-box-width: 30%;
+    --subtitle-top: calc(-55px );
+    --subtitle-left: calc(60% - 9em / 4);
+    --main-top:250px;
+  --rutext-f-size: 2em;
+  --game-f-size:3em;
+}
+  body{
+    /* background-color: red; */
+  }
+  #head{
+    height: var(--head-width);
+  }
+  #title{
+    /* top: calc(var(--head-width) / 1.5); */
+    margin-top: 50px;
+    /* text-shadow: 0 0 10px #000; */
+    padding-top: calc(var(--head-width) / 3 - var(--title-size) / 4);
+  }
+  #subtitle{
+  left:var(--subtitle-left);
+  width: 9em;
+  top:var(--subtitle-top);
+  font-size: 18px;
+  }
+  main{
+    top:var(--main-top);
+  }
+  .rutext{
+    font-size: var(--rutext-f-size);
+  }
+  #game, #game2{
+    font-size: var(--game-f-size);
+  }
+  footer{
+    height: calc(var(--footer-height));
+  }
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+:root{
+  --head-width: 250px;
+  --head-color: #6441a5;
+  --title-size:calc(4em);
+  --game-size:calc(3em / 2);
+  --footer-height:calc(150px / 2);
+  --vl-box-width: 30%;
+    --subtitle-top: calc(-55px);
+    --subtitle-left: calc(55%);
+    --main-top:250px;
+}
+  body{
+    /* background-color: red; */
+  }
+  #head{
+    height: var(--head-width);
+  }
+  #title{
+    /* top: calc(var(--head-width) / 1.5); */
+    margin-top: 50px;
+    /* text-shadow: 0 0 10px #000; */
+    padding-top: calc(var(--head-width) / 3 - var(--title-size) / 4);
+  }
+  #subtitle{
+  left:var(--subtitle-left);
+  width: 9em;
+  top:var(--subtitle-top);
+  font-size: 18px;
+  }
+  main{
+    top:var(--main-top);
+  }
+  .rutext{
+    font-size: 1.5em;
+  }
+  #game, #game2{
+    font-size: 3em;
+  }
+  footer{
+    height: calc(var(--footer-height));
+  }
+
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 599px) {
+:root{
+  --head-width: 150px;
+  --head-color: #6441a5;
+  --title-size:calc(5em / 2);
+  --game-size:calc(3em / 2);
+  --footer-height:calc(150px / 2);
+  --vl-box-width: 30%;
+    --subtitle-top: calc(-75px / 2 );
+    --subtitle-left: 40%;
+    --main-top:150px;
+}
+  body{
+    /* background-color: red; */
+  }
+  #head{
+    height: var(--head-width);
+  }
+  #title{
+    top: 50px;
+    /* text-shadow: 0 0 10px #000; */
+    padding-top: calc(var(--head-width) / 3 - var(--title-size) / 4);
+  }
+  #subtitle{
+  left:var(--subtitle-left);
+  width: 9em;
+  top:var(--subtitle-top);
+  font-size: 18px;
+  }
+  main{
+    top:var(--main-top);
+  }
+  .rutext{
+    font-size: 1.5em;
+  }
+  #game, #game2{
+    font-size: 3em;
+  }
+  footer{
+    height: calc(var(--footer-height));
+  }
+  #votinglink{
+    top: 70%;
+  }
+
 }
