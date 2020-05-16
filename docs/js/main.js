@@ -1,8 +1,8 @@
 
 const toda = new Date()//.getDate()-1
 //today = Date.now();/
-const today = toda.getDay()-1;
-
+const today = toda.getDay();
+const now = Date.now()
 
 function result (){
 
@@ -47,12 +47,16 @@ fetch("https://api.telegram.org/bot1208608965:AAFDpzSci4bV_WRfI4b6PsTaRoNWM77Xy6
 let proxy = "https://api.codetabs.com/v1/proxy?quest=";
 let url = "https://rentry.co/ru-stream-plan/raw"
 const data = fetch(proxy+url).then(res => res.text()).then(res => { //.then(res => console.log(res))
+
   let te;
   te = res.split("\n");
-  // console.log(te);
+  console.log(te);
   // console.log(te[today+12].split(":"));
   let a = "";
+  // console.log(res.split("\n")[today]);
+  console.log(today);
   // console.log(te[today+12].split(":")[1].length);
+
   if(te[today+12].split(":")[1].length<3){
     // console.log("hallo");
     document.querySelector("#t1").innerHTML = te[8];
@@ -75,7 +79,9 @@ const data = fetch(proxy+url).then(res => res.text()).then(res => { //.then(res 
        let a = document.querySelector("#game").innerHTML
   if(a.includes("Aud") ){
     document.querySelector("#votinglink").style.display = "block"
-    result()
+    if(toda.getHours()>=19 && toda.getMinutes() >= 30)
+    {result()}
+
   }
 
 },100);
